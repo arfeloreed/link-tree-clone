@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block page_title %}{% endblock page_title %}</title>
+
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  {% block css %}{% endblock css %}
+</head>
+<body>
+  <header id="navbar">
+    <a href="{% url 'home' %}">Home</a>
+    <nav id="navlinks">
+      {% block navlinks %}{% endblock navlinks %}
+    </nav>
+  </header>
+
+  {% block content %}{% endblock content %}
+</body>
+</html>

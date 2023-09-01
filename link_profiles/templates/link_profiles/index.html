@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Home{% endblock page_title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'link_profiles/index.css' %}">
+{% endblock css %}
+
+{% block navlinks %}
+  <a href="{% url 'create-link' %}">Create Link</a>
+{% endblock navlinks %}
+
+{% block content %}
+<section id="main-con">
+  <h1>All Links</h1>
+  {% comment %} <ul> {% endcomment %}
+    {% comment %} {% for link in object_list %}
+      <li>{{ link.name }} | {{ link.url }}</li>
+    {% endfor %} {% endcomment %}
+    {% comment %} {% for link in links %}
+      <li>{{ link.name }} | {{ link.url }}</li>
+      <a href="{% url 'update-link' link.id %}">Edit Link</a>
+      <a href="{% url 'delete-link' link.id %}">Delete Link</a>
+      <a href="{% url 'profile-view' link.profile.slug %}" target="_blank">View Profile</a>
+    {% endfor %} {% endcomment %}
+  {% comment %} </ul> {% endcomment %}
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Url</th>
+        <th>Profile</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for link in links %}
+      <tr>
+        <td>{{ link.name }}</td>
+        <td><a href="{{ link.url }}" target="_blank">{{ link.url }}</a></td>
+        <td><a href="{% url 'profile-view' link.profile.slug %}" target="_blank">{{ link.profile }}</a></td>
+        <td><a href="{% url 'update-link' link.id %}" class="edit">Edit Link</a></td>
+        <td><a href="{% url 'delete-link' link.id %}" class="delete">Delete Link</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock content %}

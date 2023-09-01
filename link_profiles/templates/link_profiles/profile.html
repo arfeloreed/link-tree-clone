@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+
+  <link rel="stylesheet" href="{% static 'link_profiles/profile.css' %}">
+</head>
+
+<body>
+
+  <div id="profile-con">
+    <h1>User Profile</h1>
+    <h2>{{ profile.name }}</h2>
+    <ul>
+      {% for link in links %}
+        <a href="{{ link.url }}" target="_blank"><li class="link-con">{{ link.name }}</li></a>
+      {% endfor %}
+    </ul>
+  </div>
+
+</body>
+
+</html>

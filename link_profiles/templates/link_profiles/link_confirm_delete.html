@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+  Delete Link
+{% endblock page_title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'link_profiles/link-confirm-delete.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div id="delete-con">
+  <h1>Delete Link</h1>
+  <h3>Are you sure you want to delete:</h3>
+  <ul>
+    <li>{{ link.name }}</li>
+  </ul>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <button type="submit" value="Delete">Delete</button>
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,45 @@
+body {
+  background-color: #f6f6f6;
+}
+
+#delete-con {
+  width: 90%;
+  max-width: 350px;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #dcd6f7;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+#delete-con ul {
+  list-style-type: none;
+}
+
+#delete-con h1,
+#delete-con h3 {
+  margin: 10px 0;
+}
+
+#delete-con li {
+  font-style: italic;
+}
+
+#delete-con button {
+  margin-top: 30px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  border: none;
+  background-color: #892cdc;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#delete-con button:hover {
+  background-color: #6210aa;
+}

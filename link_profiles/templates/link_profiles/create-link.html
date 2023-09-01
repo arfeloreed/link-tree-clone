@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}Create Link{% endblock page_title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'link_profiles/create-link.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<section id="form-con">
+{% if has_object %}
+  <h2>Edit Link</h2>
+{% else %}
+  <h2>Create Link</h2>
+{% endif %}
+
+  <form action="", method="POST">
+    {% csrf_token %}
+    {% comment %} {{ form }} {% endcomment %}
+    {% for field in form %}
+    <div>
+      {{ field.label_tag }}
+      {{ field }}
+      {{ field.errors }}
+    </div>
+    {% endfor %}
+    <button type="submit" value="saved link">Create</button>
+  </form>
+</section>
+{% endblock content %}
